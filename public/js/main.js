@@ -104,3 +104,11 @@
     
 })(jQuery);
 
+const togglePassword = document.querySelector('#togglePassword');
+const passwordInput = document.querySelector('#password');
+
+togglePassword.addEventListener('change', function() {
+    const type = this.checked ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+});
+

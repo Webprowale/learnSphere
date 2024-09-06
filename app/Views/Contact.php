@@ -36,7 +36,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <span class="m-0 text-primary"><i class="fa fa-book me-3"></i>LearnSphere</span>
+            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>LearnSphere</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -183,12 +183,12 @@
                     </div>
                 </div>
               
-                <div class="col-lg-3 col-md-6">
+                <div class=" col-md-6">
                     <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                    <p>Receive Early Morning Tips to Enhance Your Learning</p>
+                    <div class="position-relative" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                     </div>
                 </div>
             </div>
@@ -200,15 +200,14 @@
                         &copy; <a class="border-bottom" href="<?= base_url() ?>">LearnSphere</a>, All Right Reserved.
 
                         
-                        Developed By <a class="border-bottom" href="">Webprowale</a><br><br>
+                        Developed By <a class="border-bottom" target="_blank" href="https://webprowale.netlify.app/">Webprowale</a><br><br>
                         
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <a href="<?= base_url() ?>">Home</a>
+                            <a href="<?=base_url() ?>">Help</a>
+                            <a href="<?=base_url() ?>">FQAs</a>
                         </div>
                     </div>
                 </div>

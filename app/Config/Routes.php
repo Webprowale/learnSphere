@@ -15,7 +15,7 @@ $routes->post('/register', 'AuthController::register');
 $routes->get('/login', 'AuthController::login');
 $routes->post('/login', 'AuthController::confirm_login');
 
-$routes->group('/dashboard', ['filter' => 'auth'], function ($routes) {
+$routes->group('/user', function ($routes) {
     $routes->get('', 'UserController::index');
     $routes->get('logout', 'AuthController::logout');
 });

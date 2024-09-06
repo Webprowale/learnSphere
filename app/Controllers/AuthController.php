@@ -10,11 +10,11 @@ class AuthController extends BaseController
 {
     public function index()
     {
-        return view('register');
+        return view('Register');
     }
 
     public function login(){
-        return view('login');
+        return view('Login');
     }
     public function confirm_login(){
      helper(['form','url']);

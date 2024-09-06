@@ -195,7 +195,11 @@
     background: var(--primary);
     border-color: var(--primary);
 }
-
+@media only screen and (max-width:768px) {
+    .brand-logo{
+        font-size: 22px;
+    }
+}
 .page-header {
     background: linear-gradient(to right,#5a5f66, #132839 );
     background-position: center center;
@@ -276,6 +280,8 @@
 .category img,
 .course-item img {
     transition: .5s;
+    max-height:200px ;
+    width: 100%;
 }
 
 .category a:hover img,

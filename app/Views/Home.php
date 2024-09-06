@@ -34,7 +34,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <span class="m-0 text-primary"><i class="fa fa-book me-3"></i>LearnSphere</span>
+            <h2 class="m-0 text-primary brand-logo"><i class="fa fa-book me-3"></i>LearnSphere</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -101,7 +101,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
                             <h5 class="mb-3">Skilled Instructors</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            <p>Gain knowledge from experienced professionals who bring real-world expertise to every course.</p>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
                             <h5 class="mb-3">Online Classes</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            <p>Engage in flexible, interactive online classes that fit your schedule to enhance your learning experience.</p>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-home text-primary mb-4"></i>
                             <h5 class="mb-3">Home Projects</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            <p>Work on practical, hands-on projects that allow you to apply what you’ve learned directly at home.</p>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
                             <h5 class="mb-3">Book Library</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            <p>Access a wide range of books and materials to complement your learning and deepen your understanding.</p>
                         </div>
                     </div>
                 </div>
@@ -150,18 +150,10 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
                     <h1 class="mb-4">Welcome to LearnSphere</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <p class="mb-4">Unlock your potential with LearnSphere, the ultimate platform for online learning. Whether you’re looking to advance your career, learn new skills, or dive into tech, design, or marketing, we’ve got you covered. With courses designed by industry experts, LearnSphere is your gateway to mastering the latest trends and tools.</p>
+                    <p class="mb-4">At LearnSphere, we believe that education should be accessible, flexible, and tailored to meet the demands of an ever-changing digital world. That’s why our courses are crafted to ensure that you not only gain theoretical knowledge but also practical skills that you can apply in real-world scenarios. From coding bootcamps to design projects and marketing strategies, each course is built to offer hands-on learning experiences.</p>
+                    
                     <div class="row gy-2 gx-4 mb-4">
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
-                        </div>
                         <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
                         </div>
@@ -428,34 +420,26 @@
             <div class="owl-carousel testimonial-carousel position-relative">
                 <div class="testimonial-item text-center">
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
+                    <h5 class="mb-0">Aisha R.</h5>
+                    <p>Digital Marketer</p>
                     <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-0">LearnSphere has been a game-changer for my career. I transitioned into digital marketing with ease, and the courses were incredibly insightful.</p>
                     </div>
                 </div>
                 <div class="testimonial-item text-center">
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
+                    <h5 class="mb-0">John M.</h5>
+                    <p>Software Developer</p>
                     <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-0">"As a software engineer, I wanted to expand my skill set, and LearnSphere’s data science courses were top-notch. Highly recommended!</p>
                     </div>
                 </div>
                 <div class="testimonial-item text-center">
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
+                    <h5 class="mb-0">Sarah L.</h5>
+                    <p>Graphic Designer</p>
                     <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-0">The design courses are brilliant! I built an amazing portfolio, and the instructors really care about helping you succeed.</p>
                     </div>
                 </div>
             </div>
@@ -489,12 +473,12 @@
                     </div>
                 </div>
               
-                <div class="col-lg-3 col-md-6">
+                <div class=" col-md-6">
                     <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                    <p>Receive Early Morning Tips to Enhance Your Learning</p>
+                    <div class="position-relative" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                     </div>
                 </div>
             </div>
@@ -506,15 +490,14 @@
                         &copy; <a class="border-bottom" href="<?= base_url() ?>">LearnSphere</a>, All Right Reserved.
 
                         
-                        Developed By <a class="border-bottom" href="">Webprowale</a><br><br>
+                        Developed By <a class="border-bottom" target="_blank" href="https://webprowale.netlify.app/">Webprowale</a><br><br>
                         
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <a href="<?= base_url() ?>">Home</a>
+                            <a href="<?=base_url() ?>">Help</a>
+                            <a href="<?=base_url() ?>">FQAs</a>
                         </div>
                     </div>
                 </div>
