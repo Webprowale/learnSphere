@@ -9,15 +9,17 @@ $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/course', 'Home::course');
 $routes->get('/contact', 'Home::contact');
+$routes->get('/login', 'Home::login');
+$routes->get('/register', 'Home::register');
 
-$routes->get('/register', 'AuthController::index');
-$routes->post('/register', 'AuthController::register');
-$routes->get('/login', 'AuthController::login');
-$routes->post('/login', 'AuthController::confirm_login');
+// Auth
+$routes->post('/reg', 'AuthController::register');
+$routes->post('/log', 'AuthController::confirm_login');
 
-$routes->group('/user', function ($routes) {
+$routes->group('/user', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'UserController::index');
     $routes->get('logout', 'AuthController::logout');
+    $routes->get('buy', 'UserController::buy');
 });
 
 $routes->group('/tutor',function($routes){

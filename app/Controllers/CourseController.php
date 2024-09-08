@@ -18,7 +18,7 @@ class CourseController extends BaseController
     {
         $db = new CourseModel();
     
-        // Define the validation rules including image file validation
+        
         $this->validate([
             'title' => 'required|string',
             'description' => 'required|string',

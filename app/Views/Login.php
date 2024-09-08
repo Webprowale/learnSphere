@@ -57,20 +57,30 @@
         <h5 class="fs-3 fw-bold">Login</h5>
         <p class="fw-semibold mb-1">Expectional service and Expertise -the go-to real practices</p>
       </div>
-      <form method="post">
+      <form method="post" action="<?= base_url('log')?>">
         <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
           <input type="email" name="email" class="form-control text-black" id="floatingInput" placeholder="name@example.com" style="background-color: transparent;">
           <label for="floatingInput" style="background-color: transparent;">Email address....</label>
+          <?php if(isset($errors['email'])): ?>
+            <small class="text-danger"><?= esc($errors['email']) ?></small>
+          <?php endif; ?>
+          <?php if(isset($usererror)): ?>
+          <small class="text-danger"><?= esc($usererror) ?></small>
+          <?php endif;?>
+
         </div>
         <div class="form-floating mb-1 shadow rounded" style="background-color: transparent;">
           <input type="password" name="password" id="password" class="form-control text-black" id="floatingInput" placeholder="Enter password..." style="background-color: transparent;">
           <label for="floatingInput" style="background-color: transparent;">Password...</label>
+          <?php if(isset($passerror)): ?>
+          <small class="text-danger"><?= esc($passerror) ?></small>
+          <?php endif;?>
         </div>
         <div class="mb-4">
           <input type="checkbox" id="togglePassword" class="toggle-password ms-2">
           <label for="togglePassword b">Show Password</label>
         </div>
-        <input type="submit" name="signup" value="SignUp" class="btn bg-info text-white form-control b fs-5">
+        <input type="submit" name="login" value="Login" class="btn bg-info text-white form-control b fs-5">
       </form>
       <div class="mt-4">
         <p>Don't Have Account?<span class=" fs-5 text-primary"></span>

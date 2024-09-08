@@ -6,15 +6,16 @@ use CodeIgniter\Model;
 
 class AuthModel extends Model
 {
-    protected $table            = 'users';
+    protected $table            = 'auth';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'fullname',
-        'username',
+        'id',
+        'firstname',
+        'lastname',
         'email',
         'password',
         'role',

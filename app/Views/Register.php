@@ -57,37 +57,60 @@
         <h5 class="fs-3 fw-bold">Register</h5>
         <p class="fw-semibold mb-1">Expectional service and Expertise -the go-to real practices</p>
       </div>
-      <form method="post">
-       <div class="d-md-flex">
-       <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
-          <input type="text" name="firstname" value="" class="form-control text-black" id="floatingInput" placeholder="Enter First Name..." style="background-color: transparent;">
-          <label for="floatingInput" style="background-color: transparent;">First Name...</label>
-        </div>
+      <form method="post" action="<?= base_url('reg') ?>">
+    <div class="d-md-flex">
         <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
-          <input type="text" name="lastname" value="" class="form-control text-black" id="floatingInput" placeholder="Enter Last Name..." style="background-color: transparent;">
-          <label for="floatingInput" style="background-color: transparent;">Last Name...</label>
+            <input type="text" name="firstname" value="<?= old('firstname') ?>" class="form-control text-black" id="floatingInput" placeholder="Enter First Name..." style="background-color: transparent;">
+            <label for="floatingInput" style="background-color: transparent;">First Name...</label>
+            <?php if (isset($errors['firstname'])): ?>
+                <small class="text-danger"><?= esc($errors['firstname']) ?></small>
+            <?php endif; ?>
         </div>
-       </div>
+        
         <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
-          <input type="email" name="email" class="form-control text-black" id="floatingInput" placeholder="name@example.com" style="background-color: transparent;">
-          <label for="floatingInput" style="background-color: transparent;">Email address....</label>
+            <input type="text" name="lastname" value="<?= old('lastname') ?>" class="form-control text-black" id="floatingInput" placeholder="Enter Last Name..." style="background-color: transparent;">
+            <label for="floatingInput" style="background-color: transparent;">Last Name...</label>
+            <?php if (isset($errors['lastname'])): ?>
+                <small class="text-danger"><?= esc($errors['lastname']) ?></small>
+            <?php endif; ?>
         </div>
-        <div class="form-floating mb-1 shadow rounded" style="background-color: transparent;">
-          <input type="password" name="password" id="password" class="form-control text-black" id="floatingInput" placeholder="Enter password..." style="background-color: transparent;">
-          <label for="floatingInput" style="background-color: transparent;">Password...</label>
-        </div>
-        <div class="mb-4">
-          <input type="checkbox" id="togglePassword" class="toggle-password ms-2">
-          <label for="togglePassword b">Show Password</label>
-        </div>
-        <input type="submit" name="signup" value="Register" class="btn bg-info text-white form-control b fs-5">
-      </form>
+    </div>
+
+    <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
+        <input type="email" name="email" value="<?= old('email') ?>" class="form-control text-black" id="floatingInput" placeholder="name@example.com" style="background-color: transparent;">
+        <label for="floatingInput" style="background-color: transparent;">Email address...</label>
+        <?php if (isset($errors['email'])): ?>
+            <small class="text-danger"><?= esc($errors['email']) ?></small>
+        <?php endif; ?>
+    <?php if(isset($emailerror)): ?>
+        <small><?= esc($emailerror)?></small>
+        <?php endif;?>
+    </div>
+
+    <div class="form-floating mb-1 shadow rounded" style="background-color: transparent;">
+        <input type="password" name="password" id="password" class="form-control text-black" placeholder="Enter password..." style="background-color: transparent;">
+        <label for="floatingInput" style="background-color: transparent;">Password...</label>
+        <?php if (isset($errors['password'])): ?>
+            <small class="text-danger"><?= esc($errors['password']) ?></small>
+        <?php endif; ?>
+    </div>
+
+    <div class="mb-4">
+        <input type="checkbox" id="togglePassword" class="toggle-password ms-2">
+        <label for="togglePassword">Show Password</label>
+    </div>
+
+    <input type="submit" name="signup" value="Register" class="btn bg-info text-white form-control b fs-5">
+</form>
+
       <div class="mt-4">
         <p>Already a member<span class=" fs-5 text-primary"></span>
           <a href="./login">Login</a>
         </p>
       </div>
     </div>
+
+
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">

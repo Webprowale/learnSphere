@@ -8,8 +8,6 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     <!-- Favicon -->
-
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,8 +39,8 @@
                 J A
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Log Out</a></li>
+                <li><a class="dropdown-item">Settings</a></li>
+                <li><a class="dropdown-item" href="<?=base_url() ?>user/logout">Log Out</a></li>
             </ul>
         </div>
     </nav>
@@ -70,7 +68,7 @@
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/design.jpg" alt="">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="<?= base_url() ?>buy" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Buy Now</a>
+                                <a href="<?= base_url() ?>user/buy" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Buy Now</a>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
@@ -96,7 +94,7 @@
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/node.jpg" alt="">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="<?= base_url() ?>/buy" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Buy Now</a>
+                                <a href="<?= base_url() ?>user/buy" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Buy Now</a>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
@@ -122,7 +120,7 @@
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/data.jpg" alt="">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="<?= base_url() ?>/buy" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                                <a href="<?= base_url() ?>user/buy" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">

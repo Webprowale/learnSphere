@@ -8,34 +8,27 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class AuthController extends BaseController
 {
-    public function index()
-    {
-        return view('Register');
-    }
-
-    public function login(){
-        return view('Login');
-    }
     public function confirm_login(){
      helper(['form','url']);
      $model = new AuthModel();
      $data =[
-        'username' => $this->request->getPost('username'),
+        'email' => $this->request->getPost('email'),
        'password' =>  $this->request->getPost('password'),
      ];
-     $user = $model->where('username', $data['username'])->first();
+     $user = $model->where('email', $data['email'])->first();
      if(!$user){
-         return view('login',['usererror' => 'Invalid username']);
+         return view('Login',['usererror' => 'Invalid email']);
      }else{
         $pass = password_verify($data['password'],$user['password']);
         if($pass){
             $session = session();
             $session->set('user_id', $user['id']);
-            $session->set('username', $user['username']);
+            $session->set('email', $user['email']);
+            $session->set('firstname', $user['firstname']);
             $session->set('role',$user['role']);
-            return redirect()->to(site_url('dashboard'));
+            return redirect()->to(site_url('user'));
         }else{
-            return view('login',['passerror' => 'Invalid password']);
+            return view('Login',['passerror' => 'Invalid password']);
         }
      }
     }
@@ -43,8 +36,8 @@ class AuthController extends BaseController
     public function register(){
         helper(['form', 'url']);
         $this->validate([
-            'fullname' => 'required',
-            'username' => 'required',
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
             'email' => 'required|valid_email',
             'password' =>  'required|min_length[8]',
         ]);
@@ -52,16 +45,12 @@ class AuthController extends BaseController
         if($this->validator->run()){
             $model = new AuthModel();
             $data = [
-                'fullname' => $this->request->getPost('fullname'),
-                'username' => $this->request->getPost('username'),
+                'firstname' => $this->request->getPost('firstname'),
+                'lastname' => $this->request->getPost('lastname'),
                 'email' => $this->request->getPost('email'),
                 'password' => $this->request->getPost('password'),
-                'role' => 'student'
+                'role' => 'user'
             ];
-
-            if($model->where('username', $data['username'])->first()){
-                return view('register',['userror' =>'Username already in use']);
-            }
             if($model->where('email',$data['email'])->first()){
                 return view('register',['emailerror' =>'Email already in use']);
             }
