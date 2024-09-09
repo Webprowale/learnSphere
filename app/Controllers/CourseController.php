@@ -22,10 +22,9 @@ class CourseController extends BaseController
         $this->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            'tags' => 'required|string',
             'image' => 'uploaded[image]|mime_in[image,image/jpg,image/jpeg,image/png]|max_size[image,2048]', 
-            'duration' => 'required|integer',
-            'category' => 'required|string'
+            'category' => 'required|string',
+            'price' => 'required|numeric'
         ]);
     
         if ($this->validator->run()) {
@@ -40,9 +39,8 @@ class CourseController extends BaseController
             $data = [
                 'title' => $this->request->getPost('title'),
                 'description' => $this->request->getPost('description'),
-                'tags' => $this->request->getPost('tags'),
                 'image' => $imagePath,
-                'duration' => $this->request->getPost('duration'),
+                'price' => $this->request->getPost('price'),
                 'category' => $this->request->getPost('category')
             ];
             $db->insert($data);
@@ -108,7 +106,7 @@ class CourseController extends BaseController
     public function get_courses(){
         $db = new CourseModel();
         $courses = $db->findAll();
-        return view('get_course',$courses);
+        return view('user',$courses);
     }
     
     public function get_course($id){
@@ -120,7 +118,7 @@ class CourseController extends BaseController
     public function search_course(): string
     {
         $db = new CourseModel();
-        $searchTerm = $this->request->getPost('search_term');
+        $searchTerm = $this->request->getGet('search_term');
         $courses = $db->like('title', $searchTerm, 'both', null, true)
                       ->orLike('description', $searchTerm, 'both', null, true)
                       ->findAll();

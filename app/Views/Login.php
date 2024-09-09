@@ -46,7 +46,7 @@
                 <a href="<?= base_url() ?>" class="nav-item nav-link">Home</a>
                 <a href="<?= base_url() ?>about" class="nav-item nav-link">About</a>
                 <a href="<?= base_url() ?>course" class="nav-item nav-link">Courses</a>
-                <a href="<?= base_url() ?>contact" class="nav-item nav-link active">Contact</a>
+                <a href="<?= base_url() ?>contact" class="nav-item nav-link">Contact</a>
             </div>
             <a href="<?= base_url() ?>register" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>

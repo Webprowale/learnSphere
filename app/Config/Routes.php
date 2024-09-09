@@ -22,10 +22,9 @@ $routes->group('/user', ['filter' => 'auth'], function ($routes) {
     $routes->get('buy', 'UserController::buy');
 });
 
-$routes->group('/tutor',function($routes){
-     $routes->get('', 'CourseController::index');
+$routes->group('/control',function($routes){
+     $routes->get('', 'AdminController::index');
      $routes->post('/create-course', 'CourseController::create_course');
      $routes->post('/create-lesson', 'CourseController::create_lesson');
      $routes->post('/create-quiz', 'CourseController::create_quiz');
-     
 });

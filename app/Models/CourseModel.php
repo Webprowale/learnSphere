@@ -20,8 +20,6 @@ class CourseModel extends Model
         'category',
         'tags',
         'duration',
-        'created_at'
-
     ];
 
     protected bool $allowEmptyInserts = false;

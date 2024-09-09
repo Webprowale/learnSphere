@@ -25,6 +25,7 @@ class AuthController extends BaseController
             $session->set('user_id', $user['id']);
             $session->set('email', $user['email']);
             $session->set('firstname', $user['firstname']);
+            $session->set('lastname', $user['lastname']);
             $session->set('role',$user['role']);
             return redirect()->to(site_url('user'));
         }else{

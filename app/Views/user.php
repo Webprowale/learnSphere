@@ -35,8 +35,8 @@
             <h2 class="m-0 text-primary brand-logo"><i class="fa fa-book"></i>LearnSphere</h2>
         </a>
         <div class="dropdown me-md-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                J A
+            <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <?= strtoupper(substr(session()->get('firstname'), 0, 1)) ?>.<?= strtoupper(substr(session()->get('lastname'), 0, 1)) ?>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item">Settings</a></li>
@@ -49,13 +49,12 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-6">
                     <div class="input-group mb-0">
-                        <input type="text" class="form-control border-end-0 mb-0" placeholder="Search courses..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <span class="input-group-text sit border-start-0" id="basic-addon2"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control  mb-0" placeholder="Search courses...">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="section-container p-2 p-xl-4">
+        <div class="section-container p-2 p-xl-4 pt-5">
 
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
