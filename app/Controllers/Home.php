@@ -28,4 +28,8 @@ class Home extends BaseController
     {
         return view('Register');
     }
+    public function Tutor()
+    {
+        return view('RegTutor');
+    }
 }

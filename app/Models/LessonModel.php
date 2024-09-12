@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class LessonModel extends Model
 {
-    protected $table            = 'lessons';
+    protected $table            = 'lesson';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -15,9 +15,7 @@ class LessonModel extends Model
     protected $allowedFields    = [
         'id',
         'title',
-        'content',
         'video',
-        'quiz_id',
         'course_id'
     ];
 

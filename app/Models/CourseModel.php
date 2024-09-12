@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class CourseModel extends Model
 {
-    protected $table            = 'courses';
+    protected $table            = 'course';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -18,8 +18,8 @@ class CourseModel extends Model
         'description',
         'image',
         'category',
-        'tags',
-        'duration',
+        'price',
+        'tutor_id'
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -52,3 +52,4 @@ class CourseModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 }
+

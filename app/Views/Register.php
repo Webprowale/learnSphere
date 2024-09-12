@@ -86,7 +86,7 @@
         <small><?= esc($emailerror)?></small>
         <?php endif;?>
     </div>
-
+    <input type="hidden" name="role" value="user">
     <div class="form-floating mb-1 shadow rounded" style="background-color: transparent;">
         <input type="password" name="password" id="password" class="form-control text-black" placeholder="Enter password..." style="background-color: transparent;">
         <label for="floatingInput" style="background-color: transparent;">Password...</label>
