@@ -57,6 +57,11 @@ class TutorController extends BaseController
         $courses = $db->where('tutor_id', session()->get('tutor'))->findAll();
         return view('tutor/course', ['courses' => $courses]);
     }
+    public function edit_course($id){
+        $db = new CourseModel();
+        $course = $db->where('id', $id)->first();
+        return view('tutor/update-course', ['course' => $course]);
+    }
 
     public function update_course($id)
     {
@@ -64,12 +69,11 @@ class TutorController extends BaseController
         $this->validate([
             'title' => 'permit_empty|string',
             'description' => 'permit_empty|string',
-            'tags' => 'permit_empty|string',
             'image' => 'permit_empty|uploaded[image]|mime_in[image,image/jpg,image/jpeg,image/png]|max_size[image,2048]',
-            'duration' => 'permit_empty|integer',
-            'category' => 'permit_empty|string'
+            'category' => 'permit_empty|string',
+            'price' => 'permit_empty|numeric'
         ]);
-
+        $course = $db->where('id', $id)->first();
         if ($this->validator->run()) {
             $data = [];
             if ($this->request->getPost('title')) {
@@ -79,10 +83,7 @@ class TutorController extends BaseController
                 $data['description'] = $this->request->getPost('description');
             }
             if ($this->request->getPost('tags')) {
-                $data['tags'] = $this->request->getPost('tags');
-            }
-            if ($this->request->getPost('duration')) {
-                $data['duration'] = $this->request->getPost('duration');
+                $data['price'] = $this->request->getPost('price');
             }
             if ($this->request->getPost('category')) {
                 $data['category'] = $this->request->getPost('category');
@@ -95,12 +96,12 @@ class TutorController extends BaseController
             }
             if (!empty($data)) {
                 $db->update($id, $data);
-                return view('update_course', ['message' => 'Course updated successfully']);
+                return view('tutor/update-course', ['message' => 'Course updated successfully', 'course' => $course]);
             } else {
-                return view('update_course', ['errors' => 'No data to update']);
+                return view('tutor/update-course', ['errors' => 'No data to update', 'course' => $course]);
             }
         } else {
-            return view('update_course', ['errors' => $this->validator->getErrors()]);
+            return view('tutor/update-course', ['errors' => $this->validator->getErrors(), 'course' => $course]);
         }
     }
 
@@ -108,16 +109,8 @@ class TutorController extends BaseController
     {
         $db = new CourseModel();
         $db->delete($id);
-        return redirect()->to(site_url('login'));
+        return redirect()->to(site_url('control'));
     }
-
-    public function get_courses()
-    {
-        $db = new CourseModel();
-        $courses = $db->findAll();
-        return view('user', $courses);
-    }
-
 
     public function search_course(): string
     {
@@ -295,12 +288,21 @@ class TutorController extends BaseController
         return view('lessons_with_quizzes', ['lessons' => $lessons]);
     }
 
+    public function edit_lesson($id){
+        $lessonModel = new LessonModel();
+        $db = new CourseModel();
+        $courses = $db->where('tutor_id',  session()->get('tutor'))->findAll();
+        $lesson = $lessonModel->find($id);
+        return view('tutor/update-lesson', ['lesson' => $lesson,'select' => $courses]);
+    }
+
     public function update_lesson($lesson_id) {
         $lessonModel = new LessonModel();
         $lesson = $lessonModel->find($lesson_id);
-
+        $db = new CourseModel();
+        $courses = $db->where('tutor_id',  session()->get('tutor'))->findAll();
         if (!$lesson) {
-            return view('update_lesson', ['errors' => 'Lesson not found']);
+            return view('update_lesson', ['errors' => 'Lesson not found','lesson' => $lesson,'select' => $courses]);
         }
 
         $rules = [];
@@ -309,12 +311,12 @@ class TutorController extends BaseController
             $rules['title'] = 'string|max_length[255]';
             $data['title'] = $this->request->getPost('title');
         }
-        if ($this->request->getPost('content') !== null) {
-            $rules['content'] = 'string';
-            $data['content'] = $this->request->getPost('content');
+        if ($this->request->getPost('course_id') !== null) {
+            $rules['course_id'] = 'numeric';
+            $data['course_id'] = $this->request->getPost('course_id');
         }
         if ($this->request->getPost('video') !== null) {
-            $rules['video'] = 'uploaded[video]|max_size[video,307200]|ext_in[video,mp4,avi,mov]';
+            $rules['video'] = 'uploaded[video]|max_size[video,307200]';
             $videoFile = $this->request->getFile('video');
             if ($videoFile && $videoFile->isValid() && !$videoFile->hasMoved()) {
                 $newName = $videoFile->getRandomName();
@@ -323,11 +325,11 @@ class TutorController extends BaseController
             }
         }
         if (!$this->validate($rules)) {
-            return view('update_lesson', ['errors' => $this->validator->getErrors(), 'lesson' => $lesson]);
+            return view('tutor/update-lesson', ['errors' => $this->validator->getErrors(),'lesson' => $lesson,'select' => $courses]);
         }
         $lessonModel->update($lesson_id, $data);
 
-        return view('update_lesson', ['message' => 'Lesson updated successfully', 'lesson' => $lesson]);
+        return view('tutor/update-lesson', ['message' => 'Lesson updated successfully', 'lesson' => $lesson,'select' => $courses]);
     }
 
 }

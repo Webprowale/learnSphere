@@ -27,9 +27,19 @@ $routes->group('/control', ['filter' => 'tutor'], function($routes) {
     $routes->get( '/', 'TutorController::index');
     $routes->post( 'en', 'TutorController::create_course');
     $routes->get('course', 'TutorController::course');
+    $routes->get('edit-course/(:num)', 'TutorController::edit_course/$1');
+    $routes->post('course-update/(:num)', 'TutorController::update_course/$1');
+    $routes->get('delete-course/(:num)', 'TutorController::delete_course/$1');
+
+    
+    
     $routes->get( 'create-lesson', 'TutorController::lesson');
     $routes->post( 'less-create', 'TutorController::create_lesson');
     $routes->get( 'lesson', 'TutorController::all_lesson');
+    $routes->get('edit-lesson/(:num)', 'TutorController::edit_lesson/$1');
+    $routes->post('lesson-update/(:num)', 'TutorController::update_lesson/$1');
+    $routes->get('delete-lesson/(:num)', 'TutorController::delete_lesson/$1');
+
     $routes->get('logout', 'AuthController::logout');
 });
 
