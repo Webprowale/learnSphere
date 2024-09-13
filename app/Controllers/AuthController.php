@@ -26,14 +26,17 @@ class AuthController extends BaseController
                 $session = session();
                 $session->set('role', $user['role']);
                 if ($user['role'] === 'tutor') {
-                    $session->set('auth_id', $user['id']);
+                    $session->set('tutor_id', $user['id']);
                     $session->set('tutor_email', $user['email']);
                     $session->set('tutor_firstname', $user['firstname']);
                     $session->set('tutor_lastname', $user['lastname']);
-
+                    $tutor = new TutorModel();
+                    $Auth_tutor = $tutor->where('auth_id',$session->get('tutor_id'))->first();
+                    $session->set('tutor', $Auth_tutor['id']);
+                    
                     return redirect()->to(site_url('control'));
                 }
-                $session->set('auth_id', $user['id']);
+                $session->set('user_id', $user['id']);
                 $session->set('email', $user['email']);
                 $session->set('firstname', $user['firstname']);
                 $session->set('lastname', $user['lastname']);

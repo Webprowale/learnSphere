@@ -14,7 +14,7 @@
             <?= esc($message)?>
         </div>
     <?php endif; ?>
-    <form method="post" action="<?=base_url('control/create-lesson') ?>" enctype="multipart/form-data">
+    <form method="post" action="<?=base_url('control/less-create') ?>" enctype="multipart/form-data">
         <div class="row">
         <div class="mb-3  rounded col-md-6">
             <label for="title" style="background-color: transparent;">Title</label>

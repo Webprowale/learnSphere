@@ -61,7 +61,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Your Course</h6>
                         <a class="collapse-item" href="<?=base_url('control')?>">Create Course</a>
-                        <a class="collapse-item" href="<?= base_url('control/course/1')?>">All Course</a>
+                        <a class="collapse-item" href="<?= base_url('control/course')?>">All Course</a>
                     </div>
                 </div>
             </li>
@@ -73,8 +73,8 @@
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Your Lesson</h6>
-                        <a class="collapse-item" href="<?= base_url('control/lesson')?>">Create Lesson</a>
-                        <a class="collapse-item" href="<?= base_url('control/list-lesson')?>">All Lesson</a>
+                        <a class="collapse-item" href="<?= base_url('control/create-lesson')?>">Create Lesson</a>
+                        <a class="collapse-item" href="<?= base_url('control/lesson')?>">All Lesson</a>
                     </div>
                 </div>
             </li>

@@ -26,10 +26,10 @@ $routes->group('/user', ['filter' => 'auth'], function ($routes) {
 $routes->group('/control', ['filter' => 'tutor'], function($routes) {
     $routes->get( '/', 'TutorController::index');
     $routes->post( 'en', 'TutorController::create_course');
-    $routes->get('course/(:num)', 'TutorController::course/$1');
-    $routes->get( 'lesson', 'TutorController::lesson');
-    $routes->post( 'create-lesson', 'TutorController::create_lesson');
-
+    $routes->get('course', 'TutorController::course');
+    $routes->get( 'create-lesson', 'TutorController::lesson');
+    $routes->post( 'less-create', 'TutorController::create_lesson');
+    $routes->get( 'lesson', 'TutorController::all_lesson');
     $routes->get('logout', 'AuthController::logout');
 });
 
