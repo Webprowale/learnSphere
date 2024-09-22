@@ -107,8 +107,21 @@
 const togglePassword = document.querySelector('#togglePassword');
 const passwordInput = document.querySelector('#password');
 
-togglePassword.addEventListener('change', function() {
-    const type = this.checked ? 'text' : 'password';
-    passwordInput.setAttribute('type', type);
+document.addEventListener('DOMContentLoaded', function() {
+    const togglePassword = document.querySelector('#togglePassword');
+    const passwordInput = document.querySelector('#password');
+
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.textContent = type === 'password' ? 'Show Password' : 'Hide Password';
+        });
+    } else {
+        // console.error('Elements not found');
+    }
 });
+
+
+//search logic
 

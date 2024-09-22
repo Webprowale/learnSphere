@@ -68,8 +68,8 @@
         </div>
         
         <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
-            <input type="text" name="lastname" value="<?= old('lastname') ?>" class="form-control text-black" id="floatingInput" placeholder="Enter Last Name..." style="background-color: transparent;">
-            <label for="floatingInput" style="background-color: transparent;">Last Name...</label>
+            <input type="text" name="lastname" value="<?= old('lastname') ?>" class="form-control text-black" id="floatingInput2" placeholder="Enter Last Name..." style="background-color: transparent;">
+            <label for="floatingInput2" style="background-color: transparent;">Last Name...</label>
             <?php if (isset($errors['lastname'])): ?>
                 <small class="text-danger"><?= esc($errors['lastname']) ?></small>
             <?php endif; ?>
@@ -77,8 +77,8 @@
     </div>
 
     <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
-        <input type="email" name="email" value="<?= old('email') ?>" class="form-control text-black" id="floatingInput" placeholder="name@example.com" style="background-color: transparent;">
-        <label for="floatingInput" style="background-color: transparent;">Email address...</label>
+        <input type="email" name="email" value="<?= old('email') ?>" class="form-control text-black" id="floatingInput3" placeholder="name@example.com" style="background-color: transparent;">
+        <label for="floatingInput3" style="background-color: transparent;">Email address...</label>
         <?php if (isset($errors['email'])): ?>
             <small class="text-danger"><?= esc($errors['email']) ?></small>
         <?php endif; ?>
@@ -88,8 +88,8 @@
     </div>
     <input type="hidden" name="role" value="user">
     <div class="form-floating mb-1 shadow rounded" style="background-color: transparent;">
-        <input type="password" name="password" id="password" class="form-control text-black" placeholder="Enter password..." style="background-color: transparent;">
-        <label for="floatingInput" style="background-color: transparent;">Password...</label>
+        <input type="password" name="password" id="password" class="form-control text-black" id="floatingInput4" placeholder="Enter password..." style="background-color: transparent;">
+        <label for="floatingInput4" style="background-color: transparent;">Password...</label>
         <?php if (isset($errors['password'])): ?>
             <small class="text-danger"><?= esc($errors['password']) ?></small>
         <?php endif; ?>
@@ -170,12 +170,12 @@
      <!-- JavaScript Libraries -->
      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="<?= base_url() ?>lib/wow/wow.min.js"></script>
+    <script src="<?= base_url() ?>lib/easing/easing.min.js"></script>
+    <script src="<?= base_url() ?>lib/waypoints/waypoints.min.js"></script>
+    <script src="<?= base_url() ?>lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="<?= base_url() ?>js/main.js"></script>
 </body>
 </html>

@@ -82,7 +82,7 @@
                 <h1 class="mb-5">Courses Categories</h1>
             </div>
             <div class="row g-3">
-                        <div class="col-lg-7 col-md-6 wow zoomIn" data-wow-delay="0.1s">
+                        <div class="shadow col-md-6 wow zoomIn" data-wow-delay="0.1s">
                             <a class="position-relative d-block overflow-hidden" href="">
                                 <img class="img-fluid" src="img/web-design.jpg" alt="web design and development">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
@@ -91,7 +91,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.1s">
+                        <div class="shadow col-md-6 wow zoomIn" data-wow-delay="0.1s">
                             <a class="position-relative d-block overflow-hidden" href="">
                                 <img class="img-fluid" src="img/marketing.jpg" alt="marketing course">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
@@ -100,7 +100,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.3s">
+                        <div class="shadow col-md-6 wow zoomIn" data-wow-delay="0.3s">
                             <a class="position-relative d-block overflow-hidden" href="">
                                 <img class="img-fluid" src="img/graphic-de.jpg" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
@@ -109,7 +109,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-7 col-md-6 wow zoomIn" data-wow-delay="0.5s">
+                        <div class="shadow col-md-6 wow zoomIn" data-wow-delay="0.5s">
                             <a class="position-relative d-block overflow-hidden" href="">
                                 <img class="img-fluid" src="img/video-e.jpg" alt="video editing course">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">

@@ -20,16 +20,17 @@ $routes->post('/log', 'AuthController::confirm_login');
 $routes->group('/user', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'UserController::index');
     $routes->get('logout', 'AuthController::logout');
-    $routes->get('buy', 'UserController::buy');
+    $routes->get('live-search', 'UserController::searchCourse');
+    $routes->get('buy/(:num)', 'UserController::buy/$1');
 });
 
 $routes->group('/control', ['filter' => 'tutor'], function($routes) {
     $routes->get( '/', 'TutorController::index');
-    $routes->post( 'en', 'TutorController::create_course');
+    $routes->post( 'en', 'TutorController::createCourse');
     $routes->get('course', 'TutorController::course');
-    $routes->get('edit-course/(:num)', 'TutorController::edit_course/$1');
-    $routes->post('course-update/(:num)', 'TutorController::update_course/$1');
-    $routes->get('delete-course/(:num)', 'TutorController::delete_course/$1');
+    $routes->get('edit-course/(:num)', 'TutorController::editCourse/$1');
+    $routes->post('course-update/(:num)', 'TutorController::updateCourse/$1');
+    $routes->get('delete-course/(:num)', 'TutorController::deleteCourse/$1');
 
     
     
