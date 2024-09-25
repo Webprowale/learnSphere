@@ -73,6 +73,21 @@ class UserController extends BaseController
         
         return redirect()->to('/user');
     }
-    
+    public function watchCourse($courseId)
+    {
+        $link = 'user/watch/'.$courseId;
+        $getcourse = $this->dbCourse->where('id', $courseId)->findAll();
+        if (!$getcourse) {
+            return redirect()->back()->with('error', 'Course not found');
+        }
+        $query = $this->request->getGet('lesson');
+        if($query){
+            $lesson = $this->dbLesson->where('id', $query)->first();
+            if($lesson){
+                return view('watch', ['course'=>$getcourse, 'lesson'=>$lesson, 'link'=>$link]);
+            }
+        }
+        return view('watch', ['course'=>$getcourse, 'link'=>$link]);
+    }
 
 }

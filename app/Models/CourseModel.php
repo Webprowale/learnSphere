@@ -51,5 +51,13 @@ class CourseModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getCourseWithLessons($courseId)
+    {
+        return $this->select('course.*, lesson.id as lesson_id, lesson.title as lesson_title, lesson.video as lesson_video')
+            ->join('lesson', 'lesson.course_id = course.id')
+            ->where('course.id', $courseId)
+            ->get()->getResult();
+    }
 }
 

@@ -19,6 +19,7 @@ $routes->post('/log', 'AuthController::confirm_login');
 
 $routes->group('/user', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'UserController::index');
+    $routes->get('watch/(:num)', 'UserController::watchCourse/$1');
     $routes->get('logout', 'AuthController::logout');
     $routes->get('live-search', 'UserController::searchCourse');
     $routes->get('buy/(:num)', 'UserController::buy/$1');
@@ -35,11 +36,11 @@ $routes->group('/control', ['filter' => 'tutor'], function($routes) {
     
     
     $routes->get( 'create-lesson', 'TutorController::lesson');
-    $routes->post( 'less-create', 'TutorController::create_lesson');
-    $routes->get( 'lesson', 'TutorController::all_lesson');
-    $routes->get('edit-lesson/(:num)', 'TutorController::edit_lesson/$1');
-    $routes->post('lesson-update/(:num)', 'TutorController::update_lesson/$1');
-    $routes->get('delete-lesson/(:num)', 'TutorController::delete_lesson/$1');
+    $routes->post( 'less-create', 'TutorController::createLesson');
+    $routes->get( 'lesson', 'TutorController::allLesson');
+    $routes->get('edit-lesson/(:num)', 'TutorController::editLesson/$1');
+    $routes->post('lesson-update/(:num)', 'TutorController::updateLesson/$1');
+    $routes->get('delete-lesson/(:num)', 'TutorController::deleteLesson/$1');
 
     $routes->get('logout', 'AuthController::logout');
 });
