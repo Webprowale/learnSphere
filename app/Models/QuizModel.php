@@ -14,15 +14,11 @@ class QuizModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'id',
-        'lesson_id',
+        'course_id',
         'title',
-        'type',
-        'questions',
-        'min_score',
-        'time_limit',
-        'attempt_allowed',
+        'description',
         'created_at',
-        'updated_at',
+        'updated_at'
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -54,4 +50,14 @@ class QuizModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function create($data)
+    {
+        return $this->insert($data);
+    }
+
+    public function deleteQuiz($quizId)
+    {
+        return $this->delete(['quiz_id' => $quizId]);
+    }
 }

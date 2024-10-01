@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CourseModel extends Model
+class QuestionModel extends Model
 {
-    protected $table            = 'course';
+    protected $table            = 'question';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -14,12 +14,10 @@ class CourseModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'id',
-        'title',
-        'description',
-        'image',
-        'category',
-        'price',
-        'tutor_id'
+        'quiz_id',
+        'question',
+        'created_at',
+        'updated_at',
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -52,17 +50,20 @@ class CourseModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getCourse()
+    public function create($data)
     {
-        return $this->findAll();
+      return $this->insert($data);
     }
-
-    public function getCourseWithLessons($courseId)
+    public function edit($questionId)
     {
-        return $this->select('course.*, lesson.id as lesson_id, lesson.title as lesson_title, lesson.video as lesson_video')
-            ->join('lesson', 'lesson.course_id = course.id')
-            ->where('course.id', $courseId)
-            ->get()->getResult();
+        return $this->update($questionId);
+    }
+    public function getQuestionsByQuizId($quizId)
+    {
+        return $this->where('quiz_id', $quizId)->findAll();
+    }
+    public function deleteByQuizId($quizId)
+    {
+        return $this->delete(['quiz_id' => $quizId]);
     }
 }
-

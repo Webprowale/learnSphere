@@ -22,7 +22,9 @@ $routes->group('/user', ['filter' => 'auth'], function ($routes) {
     $routes->get('watch/(:num)', 'UserController::watchCourse/$1');
     $routes->get('logout', 'AuthController::logout');
     $routes->get('live-search', 'UserController::searchCourse');
-    $routes->get('buy/(:num)', 'UserController::buy/$1');
+    $routes->post('buy', 'UserController::buyCourse');
+    $routes->get('payment/callback', 'UserController::callBack');
+    
 });
 
 $routes->group('/control', ['filter' => 'tutor'], function($routes) {
@@ -41,6 +43,15 @@ $routes->group('/control', ['filter' => 'tutor'], function($routes) {
     $routes->get('edit-lesson/(:num)', 'TutorController::editLesson/$1');
     $routes->post('lesson-update/(:num)', 'TutorController::updateLesson/$1');
     $routes->get('delete-lesson/(:num)', 'TutorController::deleteLesson/$1');
+
+
+    $routes->get( 'create-quiz', 'TutorController::quiz');
+    $routes->post( 'quiz-create', 'TutorController::createQuiz');
+    $routes->get( 'quiz', 'TutorController::allQuiz');
+    $routes->get('edit-quiz/(:num)', 'TutorController::editQuiz/$1');
+    $routes->post('quiz-update/(:num)', 'TutorController::updateQuiz/$1');
+    $routes->get('delete-quiz/(:num)', 'TutorController::deleteQuiz/$1');
+
 
     $routes->get('logout', 'AuthController::logout');
 });

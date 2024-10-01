@@ -80,14 +80,46 @@ class UserController extends BaseController
         if (!$getcourse) {
             return redirect()->back()->with('error', 'Course not found');
         }
+        $getLesson = $this->dbLesson->where('course_id', $courseId)->findAll();
         $query = $this->request->getGet('lesson');
         if($query){
             $lesson = $this->dbLesson->where('id', $query)->first();
             if($lesson){
-                return view('watch', ['course'=>$getcourse, 'lesson'=>$lesson, 'link'=>$link]);
+                return view('watch', ['course'=>$getcourse, 'getLesson'=>$getLesson,  'lesson'=>$lesson, 'link'=>$link]);
             }
         }
-        return view('watch', ['course'=>$getcourse, 'link'=>$link]);
+        return view('watch', ['course'=>$getcourse, 'getLesson'=>$getLesson, 'link'=>$link]);
     }
-
+    public function buyCourse()
+    {
+        $client = service('curlrequest');
+        $userEmail = $this->request->getPost('email');
+        $courseAmount = $this->request->getPost('amount');
+        $paystackSecretKey = 'sk_test_f4400c1f3229dcff5b6fa7efd1dad062f90dc1d4';
+        $paystackUrl = "https://api.paystack.co/transaction/initialize";
+        $data = [
+            'email' => $userEmail,
+            'amount' => $courseAmount * 100, 
+            'callback_url' => base_url('payment/callback') 
+        ];
+        $response = $client->post($paystackUrl, [
+            'http_errors' => false, 
+            'headers' => [
+                'Authorization' => 'Bearer ' . $paystackSecretKey,
+                'Content-Type' => 'application/json'
+            ],
+            'json' => $data
+        ]);
+        $responseBody = json_decode($response->getBody(), true);
+        if (isset($responseBody['status']) && $responseBody['status'] === true) {
+            return redirect()->to($responseBody['data']['authorization_url']);
+        } 
+            return redirect()->back()->with('error', 'Payment initialization failed.');
+        
+    }
+    public function callBack()
+    {
+        return "call Back";
+    }
+    
 }

@@ -12,6 +12,9 @@
 .fw-semi-bold {
     font-weight: 700 !important;
 }
+.trending {
+    display: block; 
+}
 
 .back-to-top {
     position: fixed;

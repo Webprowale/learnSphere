@@ -11,7 +11,6 @@
     <!-- Custom fonts for this template-->
     <link href="<?= base_url() ?>admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
     <!-- Custom styles for this template-->
     <link href="<?= base_url() ?>admin/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -41,6 +40,9 @@
                 <a class="nav-link" href="/control">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Course</span></a>
+                    <?php foreach ($course as $row): ?>
+                    <h6 class="fw-bold text-center text-white"><?= $row['title']?></h6>
+                    <?php endforeach;?>
             </li>
 
             <!-- Divider -->
@@ -50,7 +52,7 @@
             <div class="sidebar-heading">
                 Lesson
             </div>
-            <?php foreach ($course as $row): ?>
+            <?php foreach ($getLesson as $row): ?>
                 <li class="nav-item">
                     <a class="nav-link " href="<?= base_url($link .'?lesson='.$row['id']) ?>">
                         <span><?= $row['title'] ?></span>
@@ -67,18 +69,17 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <?php if (isset($lesson)): ?>
-                        <video controls class="img-fluid">
+                        <video controls autoplay controlsList='nodownload' class="img-fluid">
                             <source src="<?= $lesson['video'] ?>">
                         </video>
                         <?php else: ?>
                             <center class="mt-5">
                             <?php  foreach($course as $row)?>
                             <img src="<?= base_url($row['image'])?>" alt="<?= $row['title'] ?>" width="50%">
+                            <h3 class="mt-2 fs-2 text-black"><?= $row['title']?></h3>
                         </center>
                     <?php endif; ?>
                 </div>
-
-
             </div>
             <!-- End of Main Content -->
 
@@ -115,7 +116,6 @@
     <!-- Page level custom scripts -->
     <script src="<?= base_url() ?>admin/js/demo/chart-area-demo.js"></script>
     <script src="<?= base_url() ?>admin/js/demo/chart-pie-demo.js"></script>
-
 </body>
 
 </html>

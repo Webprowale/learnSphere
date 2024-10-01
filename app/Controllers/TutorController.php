@@ -223,4 +223,10 @@ class TutorController extends BaseController
         $this->dbLesson->delete($lessonId);
         return redirect()->to(site_url('control'));
     }
+
+    public function quiz()
+    {
+        $courses = $this->dbCourse->where('tutor_id', session()->get('tutor'))->findAll();
+        return view('tutor/create-quiz', ['select' => $courses]);
+    }
 }
