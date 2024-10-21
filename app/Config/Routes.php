@@ -22,7 +22,7 @@ $routes->group('/user', ['filter' => 'auth'], function ($routes) {
     $routes->get('watch/(:num)', 'UserController::watchCourse/$1');
     $routes->get('logout', 'AuthController::logout');
     $routes->get('live-search', 'UserController::searchCourse');
-    $routes->post('buy', 'UserController::buyCourse');
+    $routes->get('buy/(:num)', 'UserController::buyCourse/$1');
     $routes->get('payment/callback', 'UserController::callBack');
     
 });

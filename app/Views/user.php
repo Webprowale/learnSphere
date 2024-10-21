@@ -34,6 +34,16 @@
             </ul>
         </div>
     </nav>
+    <?php if (session()->getFlashdata('success')) : ?>
+    <div class="alert alert-success">
+        <?= session()->getFlashdata('success'); ?>
+    </div>
+<?php endif; ?>
+<?php if (session()->getFlashdata('error')) : ?>
+    <div class="alert alert-danger">
+        <?= session()->getFlashdata('error'); ?>
+    </div>
+<?php endif; ?>
     <div class="main-content">
         <div class="nav-bar sticky-top-xl bg-white shadow-sm w-100 p-3">
             <div class="row justify-content-center align-items-center">

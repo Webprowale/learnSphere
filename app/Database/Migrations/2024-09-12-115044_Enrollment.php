@@ -13,7 +13,10 @@ class Enrollment extends Migration
             'auth_id' => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true, 'null' => false],
             'course_id' => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true, 'null' => false],
             'enrollment_date' => ['type' => 'DATE', 'null' => false],
-            'end_date' => ['type' => 'DATE', 'null' => true],
+            'amount' => ['type' => 'DECIMAL', 'constraint' => '10,2'],
+            'status' => ['type' => 'ENUM', 'constraint' => ['pending', 'approved', 'rejected']],
+            'created_at' => ['type' => 'DATETIME']
+            
         ]);
 
         $this->forge->addForeignKey('auth_id', 'auth', 'id',  'CASCADE',  'CASCADE');
