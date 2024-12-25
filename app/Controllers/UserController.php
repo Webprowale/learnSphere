@@ -168,31 +168,34 @@ class UserController extends BaseController
             $payId = $responseBody['data']['metadata']['pay_id'];
             $verifyPrice = $this->dbCourse->where('id', $payId)->first();
     
+            $reference = $responseBody['data']['reference'];
+    
             if ($verifyPrice && $verifyPrice['price'] == $responseBody['data']['amount'] / 100) {
-                
-                if (isset($responseBody['data']['reference'])) {
-                    $updateData = ['status' => 'success'];
-                  
-                    $dbPay = $this->dbPay->where('ref', $responseBody['data']['reference'])->update($updateData);
-                   
-                        return redirect()->to('/user')->with('success', 'Payment Successful');
-                        if (!$dbPay) {
-                        return redirect()->to('/user')->with('error', 'Payment update failed');
+                if (isset($reference)) {
+                    if($responseBody['data']['status'] =='success'){
+                    $updateS = ['status' => 'success'];
+                    $dbPay = $this->dbPay->where('ref', $reference)->set($updateS)->update();
+                    return redirect()->to('/user')->with('success', 'Payment Successful');
+                    if (!$dbPay) {
+                        return redirect()->to('/user')->with('error', 'Payment failed');
                     }
-                } 
-                    return redirect()->to('/user')->with('error', 'Reference not found');
                 }
-            
-                return redirect()->to('/user')->with('error', 'Price mismatch or payment invalid');
+                $updateF = ['status'=> 'failed'];
+                 $this->dbPay->where('ref', $reference)->set($updateF)->update();
+                return redirect()->to('/user')->with('error', 'payment Failed');
+
+                } 
+                return redirect()->to('/user')->with('error', 'Reference not found');
             }
-            return redirect()->to('/user')->with('error', 'Payment status not successful');
-        } 
-            return redirect()->to('/user')->with('error', 'Payment status non verify');
+            
+            return redirect()->to('/user')->with('error', 'Price mismatch or payment invalid');
+        }
+        return redirect()->to('/user')->with('error', 'Payment status not successful');
+    } 
+    return redirect()->to('/user')->with('error', 'Payment status non-verify');
     
 
-    } 
 
-       
 }
     
-
+}
